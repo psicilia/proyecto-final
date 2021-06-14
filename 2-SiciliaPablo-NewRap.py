@@ -1,41 +1,44 @@
-from sympy import *
+import sympy as sp
 from math import *
 
+x = sp.Symbol('x')
 print("bienvenido al metodo de Newton Rapson")
 
 listCoef = []
 listRes = []
 maxCoef = int(input("ingrese la potencia maxima de su ecuacion: "))
 i = 0
+eq = ""
 while i <= (maxCoef):
     listCoef.append(float(input("ingrese la el coeficiente de X a la potencia " + str(maxCoef-i) + " en decimal: " )))
+    if maxCoef-i == 0:
+        eq = eq + str(listCoef[-1])
+    else:
+        eq = eq + str(listCoef[-1]) + ('(x**')+ str(maxCoef-i) + ") + "
     i = i + 1
 
-print(listCoef)
+print(eq)
+y = (4*(x**3) - 12*(x**2) - x + 16)
 
-def funcion(x):
-    res = 4*(x**3) - 12*(x**2) - x + 16
-    return res
-def derivada(x):
-    res = 12*(x**2) -24*x -1
-    return res 
-
-def siguiente(x):
-    sig = x-(funcion(x)/derivada(x))
-    return sig
-
-def error(x,y):
-    relativeE = abs((y-x)/y)
+def error(a,b):
+    relativeE = abs((b-a)/b)
     return relativeE
-listRes.append(-1.5)
-decimal = int(input("cantidad de decimales: "))
-listRes.append(siguiente(listRes[-1]))
+    
+derivada = y.diff(x)
 
+def siguiente():
+    aprox = (x-(y/derivada))
+    return aprox.subs(x, (listRes[-1]))
+
+decimal = int(input("cantidad de decimales: "))
+listRes.append(-1.5)
+listRes.append(siguiente())
+print(listRes)
 while error(listRes[-1], listRes[-2]) > (10**(-decimal)):
-    listRes.append(siguiente(listRes[-1]))
+    listRes.append(siguiente())
     i = i + 1
-    print(listRes)
-    print(" converge a "+ str(decimal) +" decimales en "+ str(round(listRes[-1],decimal)) +" con "+ str(i) + " iteraciones" )
+print(listRes)
+print(" converge a "+ str(decimal) +" decimales en "+ str(round(listRes[-1],decimal)) +" con "+ str(i) + " iteraciones" )
 
 """
 listX = [] #lista de X 
