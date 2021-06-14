@@ -1,8 +1,6 @@
 import sympy as sp
 from math import *
 
-from sympy.polys.partfrac import apart
-
 x = sp.Symbol('x')
 print("bienvenido al metodo de Regula Falsi")
 
