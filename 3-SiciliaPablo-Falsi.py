@@ -9,10 +9,10 @@ print("bienvenido al metodo de Regula Falsi")
 listRes = []
 i = 0
 
-ecuacion = input("ingrese su ecuacion")
+ecuacion = input("ingrese su ecuacion: ")
 y = eval(ecuacion)
-a = float(input("ingrese el valor menor del rango"))
-b = float(input("ingrese el valor mayor del rango"))
+a = float(input("ingrese el valor menor del rango: "))
+b = float(input("ingrese el valor mayor del rango: "))
 
 def error(a,b):
     relativeE = abs((b-a)/b)
