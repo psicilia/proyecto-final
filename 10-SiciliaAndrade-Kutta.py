@@ -4,15 +4,20 @@ from math import *
 import numpy as np
 
 x, y = symbols('x y')
+# definimos x, y como simbolos
 ecuacion = input("ingrese su ecuacion: ")
 f = eval(ecuacion)
+#leemos la ecuacion 
 listX = []
+# lista de valores de x 
 listY = []
+# lista de valores de y
 
 h = float(input("ingrese el valor del paso: "))
 listY.append(float(input("ingrese el valor de y correspondiente a x = 0: ")))
 listX.append(0.0)
 s = float(input("ingrese el valor de x que desea: "))
+# leemos los datos especiales y definimos los primeros valores de x, y
 i = h
 
 def k1():
@@ -30,6 +35,7 @@ def k4():
 
 while i <= s:
     newY = listY[-1] + (1/6)*(k1() + 2*k2() + 2*k3()+ k4())
+    # calculamos con base en las definiciones de k1, k2, k3, k4 y ek ultimo elemento de x, y
     listY.append(newY)
     listX.append(i)
     i = round(i + h, 5)

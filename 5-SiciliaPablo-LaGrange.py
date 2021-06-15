@@ -2,6 +2,7 @@ import sympy as sp
 from math import *
 
 x = sp.Symbol('x')
+# definimos x como simbolo
 print("bienvenido al metodo de lagrange")
 
 

@@ -1,4 +1,3 @@
-from os import error
 from sympy import *
 from math import *
 

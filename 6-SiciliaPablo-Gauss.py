@@ -5,23 +5,29 @@ from math import *
 print("bienvenido al metodo de Gauss Seidel")
 
 variables = int(input("ingrese la cantidad de variables: "))
-#listMat = [[8,-1,2,10],[1,-9,1,-8],[3,1,-12,-12]]
+
 listMat = []
+# lista de elementos de matriz 
 listRes = []
+#lista de resultados
 listVar = []
+# lista de variables
 
 i = 0
 for i in range(variables):
     ecuacion = "[" + input("ingrese los coeficientes de la ecuacion " + str(i+1) + " separados por comas: ") + "]"
     listMat.append(eval(ecuacion[:]))
+    #leemos los renglones de la matriz 
 
 def error(a,b):
     relativeE = abs((b-a)/b)
     return relativeE
+    # definimos el calculo del error relativo
 
 i = 0
 for i in range(variables):
     listVar.append(0.0)
+    # inicializamos la lista de variables
 
 listRes.append(listVar[:])
 
@@ -36,19 +42,18 @@ def calcIter():
                     acum = acum + (listMat[i][j] * listVar[j])
                 else:
                     acum = (-acum + listMat[i][j]) 
+                    # cuando llegamos al termino independiente lo sumamos multiplicamos por -1 los demas elemntos
             j = j + 1
     
         listVar[i] = ((acum)/listMat[i][i])
+        #agregamos a una lista los despejes de las variables
         i = i + 1
     listRes.append(listVar[:])
 
 calcIter()
-print(listRes)
-
-print(listRes[-1][0])
-print(listRes[-2][0])
 
 decimal = int(input("cantidad de decimales: "))
 while error(listRes[-2][0], listRes[-1][0]) > (10**(-decimal)):
+    #seguimos calculando si el error es menor al intervalo 
     calcIter()
 print(listRes[-1])
