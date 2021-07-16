@@ -12,21 +12,14 @@ listRes = []
 maxCoef = int(input("ingrese la potencia maxima de su ecuacion: "))
 # leemos el valor de la potencia mas alta, para determinar la cantidad de terminos
 i = 0
-eq = ""
-#inicializamos eq 
-while i <= (maxCoef):
-    listEsc.append(float(input("ingrese el escalar de X a la potencia " + str(maxCoef-i) + " en decimal: " )))
-    # leemos los valores escalares para cada termino 
-    if maxCoef-i == 0:
-        eq = eq + str(listEsc[-1])
-        # si es el ultimo termino no agregamos x ni un mas al final
-    else:
-        eq = eq + str(listEsc[-1]) + (' * (x**')+ str(maxCoef-i) + ") + "
-    i = i + 1
+ecuacion = ""
+#inicializamos ecuacion 
+ecuacion = input("ingrese su ecuacion: ")
+y = eval(ecuacion)
 
-print(eq)
+print(ecuacion)
 # mostramos la ecuacion final
-y = eval(eq)
+y = eval(ecuacion)
 
 def error(a,b):
     relativeE = abs((b-a)/b)

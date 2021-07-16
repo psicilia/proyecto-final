@@ -5,53 +5,48 @@ x = symbols('x')
 print("bienvenido al metodo de Romberg")
 
 listRes = []
+listJ = []
 
 ecuacion = input("ingrese su ecuacion: ")
 y = eval(ecuacion)
+#leemos la ecuacion
 a = float(input("ingrese el valor menor del intervalo: "))
 b = float(input("ingrese el valor mayor del intervalo: "))
 c = (b-a)
+#definimos el intervalo 
+
 def error(a,b):
     relativeE = abs((b-a)/b)
     return relativeE
+    #definimos la operacion para calcular el error relativo
 
-listRes.append(float((y.subs(x,a) + y.subs(x,b))/2))
-i=2
+listJ.append((y.subs(x,a) + y.subs(x,b))/2)
+# definimos J1 
+
+listRes.insert(0, float(c*listJ[0]))
+#calculamos I1 
 print(listRes)
+#imprimimos I1
 
+def siguiente(i):
+    iterationResults = []
+    for iteration in range(i):
+        if iteration > 10:
+            iterationResults.append(int(10))
+        else:   
+            iterationResults.append(int(iteration+1))
+    listRes.append(iterationResults)
 
-"""while i <= 16:
-    j = 1
-    while j < i:
-        print(str(i)+"/"+ str(j))
-        j = j + 2
-    i = i * 2"""
-
-def siguiente(k):
-    j = 1
-    sumF = 0
-    while j < k:
-        fract = a + (c * (j/k))
-        sumF = sumF + y.subs(x,fract)
-        #print(str(j)+"/"+str(k))
-        j = j + 2
-    listRes.append(listRes[-1] + sumF)
 
 i = 2
-  
 siguiente(i)
+print(listRes)
 decimal = int(input("cantidad de decimales: "))
-while error(listRes[-1],listRes[-2]) > (10**(-decimal)):
+#leemos la cantidad de decimales 
+while error(listRes[-1][-2],listRes[-1][-1]) > (10**(-decimal)):
+    i = i + 1
     siguiente(i)
     print(listRes[-1])
-    i = i * 2
 
 print(listRes)
-
-"""
-while i <= :
-    listX.append(a + (i*c))
-    listRes.append(y.subs(x,listX[-1]))
-    i = i +1""" 
-
 
