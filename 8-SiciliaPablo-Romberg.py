@@ -1,5 +1,6 @@
 from sympy import *
 from math import *
+from array import *
 
 x = symbols('x')
 print("bienvenido al metodo de Romberg")
@@ -8,7 +9,7 @@ listRes = []
 listJ = []
 
 ecuacion = input("ingrese su ecuacion: ")
-y = eval(ecuacion)
+expr = eval(ecuacion)
 #leemos la ecuacion
 a = float(input("ingrese el valor menor del intervalo: "))
 b = float(input("ingrese el valor mayor del intervalo: "))
@@ -16,37 +17,54 @@ c = (b-a)
 #definimos el intervalo 
 
 def error(a,b):
-    relativeE = abs((b-a)/b)
+    relativeE = abs(b-a)
     return relativeE
     #definimos la operacion para calcular el error relativo
 
-listJ.append((y.subs(x,a) + y.subs(x,b))/2)
+listJ.append((expr.subs(x,a) + expr.subs(x,b))/2)
 # definimos J1 
 
-listRes.insert(0, float(c*listJ[0]))
+listRes.insert(0, [float(c*listJ[0])])
 #calculamos I1 
-print(listRes)
-#imprimimos I1
 
+divisors = []
 def siguiente(i):
     iterationResults = []
+    divisors.append(int(2**(i-1)))
+    #calculamos el valor de el divisor con base en la canridad de iteraciones 
+    nextJ = listJ[-1]
+
+    for dividendo in range(divisors[-1])[1:divisors[-1]:2]:
+        nextJ = nextJ + expr.subs(x, (a + ((dividendo/divisors[-1]) * c)))
+    listJ.append(nextJ)
+
+    #print("divisors"+str(divisors))
     for iteration in range(i):
-        if iteration > 10:
-            iterationResults.append(int(10))
-        else:   
-            iterationResults.append(int(iteration+1))
+        #print("iteration"+str(iteration))
+
+        if iteration == 0:
+            iterationResults.append((1/divisors[-1]) * c * listJ[-1])
+        else:
+            divisor = divisors[int(iteration-1)]
+            fractionI = (1/((divisor**divisor)-1))
+            last = iterationResults[-1]
+            saved = listRes[-1][i-2]
+            iterationResults.append(fractionI*(((divisor ** divisor) * last) - saved))
     listRes.append(iterationResults)
+            
 
 
 i = 2
 siguiente(i)
-print(listRes)
+#print(listRes)
 decimal = int(input("cantidad de decimales: "))
 #leemos la cantidad de decimales 
 while error(listRes[-1][-2],listRes[-1][-1]) > (10**(-decimal)):
     i = i + 1
     siguiente(i)
-    print(listRes[-1])
+    #print(listRes[-1])
 
-print(listRes)
-
+for x in listRes:
+    for y in x:
+        print(y,end = " ")
+    print()
