@@ -21,7 +21,7 @@ USAGE
   4-SiciliaPablo-MinCuad.exe
 
 GITHUB
-
+  https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/4-SiciliaPablo-MinCuad.c
 
 */
 #include <stdio.h>
@@ -169,12 +169,14 @@ int menu(){
     return MENU;
 }
 
+//calculamos de manera lineal
 float sumatoria(int Vec_size, float *vector){
   float sum = 0;
   for(int i=0; i<Vec_size; i++)
       sum += vector[i];
   return sum;
 }
+//calculamos de manera exponencial
 float power_sum(int Vec_size, float *vector, int power){
       
   float result = 0;
@@ -183,7 +185,7 @@ float power_sum(int Vec_size, float *vector, int power){
   return result;
 }
 
-// Liberamos la matriz cuando sea necesario 
+// Liberamos la matriz 
 void free_matrix(float **matrix, int Matrix_size){
   if(matrix){
     for (int i = 0; i <= Matrix_size; i++)
@@ -196,13 +198,13 @@ void free_matrix(float **matrix, int Matrix_size){
   }
 }
 
-// Se limpian los punteros a vector
+// Se limpian los punteros 
 void free_vector(float *vector_limpio){
   free(vector_limpio);
   vector_limpio = NULL;
 }
 
-// Se imprime la matriz y sus valores en Y
+// Se imprime la matriz 
 void print_Matrix(int l, float **matrix, float *results){
   printf("\n");
   for (int i = 0; i <=l; i++) {
