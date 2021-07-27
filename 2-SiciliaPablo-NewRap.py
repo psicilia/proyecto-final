@@ -1,3 +1,30 @@
+"""
+NAME 
+    2-SiciliaPablo-NewRap.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que aproxima la raiz de una ecuacion
+    por el metodo numerico de Newton-Raphson
+
+CATEGORY
+    metodos numericos
+    raices de ecuaciones
+
+USAGE
+  2-SiciliaPablo-NewRap.py
+
+GITHUB
+
+
+"""
+
 import sympy as sp
 from math import *
 
@@ -5,40 +32,39 @@ x = sp.Symbol('x')
 # definimos x como simbolo
 print("bienvenido al metodo de Newton Rapson")
 
-listEsc = []
 # lista de coeficientes 
-listRes = []
+listEsc = []
 # lista de resultados
-maxCoef = int(input("ingrese la potencia maxima de su ecuacion: "))
-# leemos el valor de la potencia mas alta, para determinar la cantidad de terminos
+listRes = []
+
 i = 0
-ecuacion = ""
 #inicializamos ecuacion 
+ecuacion = ""
 ecuacion = input("ingrese su ecuacion: ")
 y = eval(ecuacion)
 
-print(ecuacion)
 # mostramos la ecuacion final
+print(ecuacion)
 y = eval(ecuacion)
 
 def error(a,b):
+    #definimos el calculo del error relativo
     relativeE = abs((b-a)/b)
     return relativeE
-    #definimos el calculo del error relativo
     
-derivada = y.diff(x)
 # derivamos y con respecto a x
+derivada = y.diff(x)
 
 def siguiente():
+    # definimos el calculo del siguiente resultado
     aprox = (x-(y/derivada))
     return aprox.subs(x, (listRes[-1]))
-    # definimos el calculo del siguiente resultado
 
 decimal = int(input("cantidad de decimales: "))
-listRes.append(float(input("ingrese valor inicial: ")))
 #leemos la precision y el valor inicial
-listRes.append(siguiente())
+listRes.append(float(eval(input("ingrese valor inicial: "))))
 # calculamos el resultado calculando con el valor inicial
+listRes.append(siguiente())
 i = 1
 while error(listRes[-1], listRes[-2]) > (10**(-decimal)):
     # si el error de los resultados es mayor al margen seguimos calculando 

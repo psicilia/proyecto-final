@@ -1,7 +1,34 @@
-from sympy import *
+"""
+NAME 
+   7-SiciliaPablo-Simpson.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que realiza una integracion numerica
+    por el metodo numerico de simpson 1/3
+
+CATEGORY
+    metodos numericos
+    integracion numerica
+
+USAGE
+  7-SiciliaPablo-Simpson.py
+
+GITHUB
+
+
+"""
+import sympy as sp
+import numpy as np
 from math import *
 
-x = symbols('x')
+x = sp.Symbol('x')
 # definimos x como simbolo
 print("bienvenido al metodo de simpson")
 
@@ -14,9 +41,9 @@ i = 0
 ecuacion = input("ingrese su ecuacion: ")
 y = eval(ecuacion)
 #leemos la ecuacion 
-a = float(input("ingrese el valor menor del intervalo: "))
-b = float(input("ingrese el valor mayor del intervalo: "))
-n = int(input("ingrese el valor de n: "))
+a = float(eval(input("ingrese el valor menor del intervalo: ")))
+b = float(eval(input("ingrese el valor mayor del intervalo: ")))
+n = int(eval(input("ingrese el valor de n: ")))
 #leemos el intervalo y el valor de n
 
 deltax = (b-a)/n

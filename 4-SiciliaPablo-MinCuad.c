@@ -1,3 +1,29 @@
+/*
+NAME 
+   4-SiciliaPablo-MinCuad.c
+
+VERSION
+  1.0
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que aproxima una ecuacion al conjunto de puntos
+    por el metodo numerico de minimos cuadrados
+
+CATEGORY
+    metodos numericos
+    aproximacion funcional
+
+USAGE
+  4-SiciliaPablo-MinCuad.exe
+
+GITHUB
+
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

@@ -1,3 +1,30 @@
+"""
+NAME 
+   5-SiciliaPablo-LaGrange.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que aproxima una ecuacion al conjunto de puntos
+    por el metodo numerico interpolacion de lagrange
+
+CATEGORY
+    metodos numericos
+    aproximacion funcional
+
+
+USAGE
+  5-SiciliaPablo-LaGrange.py
+
+GITHUB
+
+
+"""
 import sympy as sp
 from math import *
 
@@ -14,8 +41,8 @@ i = 0
 nDatos = int(input("ingresa la cantidad de datos que posees: "))
 while i < nDatos:
     # leemos los datos que tengamos
-    listX.append(float(input("ingrese el valor de X" + str(i+1) + ": " )))
-    listY.append(float(input("ingrese el valor de y" + str(i+1) + ": " )))
+    listX.append(float(eval(input("ingrese el valor de X" + str(i+1) + ": " ))))
+    listY.append(float(eval(input("ingrese el valor de y" + str(i+1) + ": " ))))
     i = i + 1
 
 

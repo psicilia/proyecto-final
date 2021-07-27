@@ -1,3 +1,29 @@
+"""
+NAME 
+    3-SiciliaPablo-Falsi.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que aproxima la raiz de una ecuacion
+    por el metodo numerico de Regula falsi
+
+CATEGORY
+    metodos numericos
+    raices de ecuaciones
+
+USAGE
+  3-SiciliaPablo-Falsi.py
+
+GITHUB
+
+
+"""
 import sympy as sp
 from math import *
 
@@ -12,8 +38,8 @@ i = 0
 ecuacion = input("ingrese su ecuacion: ")
 y = eval(ecuacion)
 # leemos la ecuacion 
-a = float(input("ingrese el valor menor del rango: "))
-b = float(input("ingrese el valor mayor del rango: "))
+a = float(eval(input("ingrese el valor menor del rango: ")))
+b = float(eval(input("ingrese el valor mayor del rango: ")))
 #leemos el rango
 
 def error(a,b):

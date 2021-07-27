@@ -1,3 +1,30 @@
+"""
+NAME 
+    1-SiciliaPablo-Aprox.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que aproxima la raiz de una ecuacion
+    por el metodo numerico de Aproximaciones sucesivas
+
+CATEGORY
+    metodos numericos
+    raices de ecuaciones
+
+USAGE
+  1-SiciliaPablo-Aprox.py
+
+GITHUB
+
+
+"""
+
 from sympy import *
 from math import *
 
@@ -6,7 +33,7 @@ print("bienvenido al metodo de aproximaciones sucesivas")
 listX = [] #lista de valores de X 
 ecuacion = input("ingrese el despeje de su ecuacion: ")
 # leemos la ecuacion de teclado
-listX.append(float(input("ingresa un valor: ")))
+listX.append(float(eval(input("ingresa un valor: "))))
 # agregamos el valor inicial de x a la lista
 decimal = int(input("cantidad de decimales: "))
 # leemos la cantidad de decimales a utilizar

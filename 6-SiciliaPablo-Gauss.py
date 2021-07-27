@@ -1,3 +1,28 @@
+"""
+NAME 
+   6-SiciliaPablo-Gauss.py
+
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que resuelve un sistema de ecuaciones lineales
+    por el metodo numerico de Gauss-Seidel
+
+CATEGORY
+    metodos numericos
+    Sistemas de ecuaciones lineales
+USAGE
+  6-SiciliaPablo-Gauss.py
+
+GITHUB
+
+
+"""
 import sympy as sp
 import numpy as np
 from math import *

@@ -1,8 +1,32 @@
-from sympy import *
+"""
+NAME 
+   8-SiciliaPablo-Romberg.py
+VERSION
+  1.1
+
+AUTHOR
+  Pablo Sicilia Andrade  <psicilia@gmail.com>
+
+
+DESCRIPTION
+    programa que realiza una integracion numerica
+    por el metodo numerico de Romberg
+
+CATEGORY
+    metodos numericos
+    integracion numerica
+
+USAGE
+  8-SiciliaPablo-Romberg.py
+GITHUB
+
+
+"""
+import sympy as sp
 from math import *
 from array import *
 
-x = symbols('x')
+x = sp.Symbol('x')
 print("bienvenido al metodo de Romberg")
 
 listRes = []
@@ -11,8 +35,8 @@ listJ = []
 ecuacion = input("ingrese su ecuacion: ")
 expr = eval(ecuacion)
 #leemos la ecuacion
-a = float(input("ingrese el valor menor del intervalo: "))
-b = float(input("ingrese el valor mayor del intervalo: "))
+a = float(eval(input("ingrese el valor menor del intervalo: ")))
+b = float(eval(input("ingrese el valor mayor del intervalo: ")))
 c = (b-a)
 #definimos el intervalo 
 
