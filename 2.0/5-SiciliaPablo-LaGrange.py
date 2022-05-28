@@ -25,6 +25,8 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/5-SiciliaPablo-LaGrange.py
 
 """
+import matplotlib.pyplot as plt
+import numpy as np
 import sympy as sp
 from math import *
 
@@ -62,6 +64,7 @@ for i in range(len(listX)):
     # definimos al ecuacion general con base en los productorios
 
 inter = input("para interpolar ingrese el valor, para ver la ecuacion presione enter: ")
+x = np.linspace(listX[0], listX[-1], 100)
 if inter == "":
     print(sp.expand(y))
 else:
@@ -69,3 +72,12 @@ else:
     result = y.subs(x, inter)
     print(result)
     # si no se ingresa  un valor a interpolar se imprime la ecuacion
+funcion = eval(str(y))
+plt.plot(listX, listY, marker = 'o', linestyle = ':', color = 'r')
+plt.plot(x, funcion, color= 'b')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('puntos')
+plt.yticks(listY)
+plt.xticks(listX)
+plt.show()
