@@ -137,13 +137,13 @@ int main() {
           if(i == 0)
             printf("%f ", results[i]);
           else{
-            if (results[i] < 0) printf(" %fx ", results[i]);
-            else printf("+ %fx ", results[i]);
+            if ((results+i) < 0) printf(" %fx ", (results+i));
+            else printf("+ %fx ", results+i);
           }
         }
         else{
-          if (results[i] < 0) printf(" %fx^%d", results[i],i);
-          else printf("+ %fx^%d", results[i],i);
+          if (results[i] < 0) printf(" %fx^%d", (results+i),i);
+          else printf("+ %fx^%d", (results+i),i);
         }  
     }
     printf("\n");
@@ -172,8 +172,8 @@ int menu(){
 //calculamos de manera lineal
 float sumatoria(int Vec_size, float *vector){
   float sum = 0;
-  for(int i=0; i<Vec_size; i++)
-      sum += vector[i];
+  for(int i=0; i < Vec_size; i++)
+      sum += (vector+i);
   return sum;
 }
 //calculamos de manera exponencial
@@ -181,7 +181,7 @@ float power_sum(int Vec_size, float *vector, int power){
       
   float result = 0;
   for(int i=0; i<Vec_size; i++)
-    result += pow(vector[i],power);
+    result += pow((vector+i),power);
   return result;
 }
 
@@ -189,9 +189,9 @@ float power_sum(int Vec_size, float *vector, int power){
 void free_matrix(float **matrix, int Matrix_size){
   if(matrix){
     for (int i = 0; i <= Matrix_size; i++)
-      if(*(matrix+i)){
-        free(*(matrix+i));
-        *(matrix+i) = NULL;
+      if(*(matrix + i)){
+        free(*(matrix + i));
+        *(matrix + i) = NULL;
       }
     free(matrix);
     matrix = NULL;
@@ -210,6 +210,6 @@ void print_Matrix(int l, float **matrix, float *results){
   for (int i = 0; i <=l; i++) {
     for (int j = 0; j <=l; j++)
       printf("%f\t", matrix[i][j]);
-    printf("|\t%f\n", results[i]);
+    printf("|\t%f\n", (results + i));
   }
 }

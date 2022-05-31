@@ -22,9 +22,11 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/9-SiciliaPablo-Euler.py
 
 """
-import sympy as sp
+import matplotlib.pyplot as plt
 from math import *
 import numpy as np
+from sympy import *
+import sympy as sp
 
 x, y = sp.symbols('x y')
 # definimos x, y como simbolos
@@ -51,6 +53,24 @@ while i <= s:
 # repetimos el calculo para llegar de xo a la x que queremos definir
 print(listY[-1])
 
+evaluado = []
+evaluadoP = []
+x = np.linspace(float(min(listRes)-1), float(max(listRes)+1), 100)
+for a in x:
+    evaluado.append(y.subs(X, a))
+for a in listRes:
+    evaluadoP.append(y.subs(X, a))
 
+a = [float(min(listRes)-1), float(max(listRes)+1)]
+b = [0, 0]
+c = [float(min(evaluadoP)-1), float(max(evaluadoP)+1)]
 
+plt.plot(listRes, evaluadoP, marker='o', linestyle=':', color = 'r')
+plt.plot(x, evaluado, color= 'b')
+plt.plot(a,b, color = 'black')
+plt.plot(b,c, color = 'black')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title(y)
+plt.show()
 

@@ -23,9 +23,11 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/6-SiciliaPablo-Gauss.py
 
 """
-import sympy as sp
-import numpy as np
+import matplotlib.pyplot as plt
 from math import *
+import numpy as np
+from sympy import *
+import sympy as sp
 
 print("bienvenido al metodo de Gauss Seidel")
 

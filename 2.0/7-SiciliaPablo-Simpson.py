@@ -25,9 +25,11 @@ GITHUB
 
 
 """
-import sympy as sp
-import numpy as np
+import matplotlib.pyplot as plt
 from math import *
+import numpy as np
+from sympy import *
+import sympy as sp
 
 x = sp.Symbol('x')
 # definimos x como simbolo
@@ -65,4 +67,15 @@ for res in listRes[1:-2:2]:
 
 result = (deltax/3)*(listRes[0] + listRes[-1] + (sumPar) + (4*sumImp))
 # imprimimos el resultado final
-print(result)
+
+x = np.linspace(a, b, 100)
+
+funcion = eval(str(y))
+print('y', type(y))
+plt.bar(listX, listRes, color = 'r', width = deltax)
+plt.plot(x, funcion, color= 'b')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title(y)
+plt.xticks(listX)
+plt.show()

@@ -23,9 +23,11 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/8-SiciliaPablo-Romberg.py
 
 """
-import sympy as sp
+import matplotlib.pyplot as plt
 from math import *
-from array import *
+import numpy as np
+from sympy import *
+import sympy as sp
 
 x = sp.Symbol('x')
 print("bienvenido al metodo de Romberg")

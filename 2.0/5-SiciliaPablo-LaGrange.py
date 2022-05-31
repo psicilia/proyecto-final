@@ -26,9 +26,10 @@ GITHUB
 
 """
 import matplotlib.pyplot as plt
-import numpy as np
-import sympy as sp
 from math import *
+import numpy as np
+from sympy import *
+import sympy as sp
 
 x = sp.Symbol('x')
 # definimos x como simbolo
@@ -72,6 +73,7 @@ else:
     result = y.subs(x, inter)
     print(result)
     # si no se ingresa  un valor a interpolar se imprime la ecuacion
+
 funcion = eval(str(y))
 plt.plot(listX, listY, marker = 'o', linestyle = ':', color = 'r')
 plt.plot(x, funcion, color= 'b')
