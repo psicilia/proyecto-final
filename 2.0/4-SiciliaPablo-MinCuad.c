@@ -3,7 +3,7 @@ NAME
    4-SiciliaPablo-MinCuad.c
 
 VERSION
-  1.0
+  1.2
 
 AUTHOR
   Pablo Sicilia Andrade  <psicilia@gmail.com>
@@ -21,7 +21,7 @@ USAGE
   4-SiciliaPablo-MinCuad.exe
 
 GITHUB
-  https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/4-SiciliaPablo-MinCuad.c
+  https://github.com/psicilia/proyecto-final/blob/966bcafc1ab154f1d427a45db73828d8c20c36a7/2.0/4-SiciliaPablo-MinCuad.c
 
 */
 #include <stdio.h>

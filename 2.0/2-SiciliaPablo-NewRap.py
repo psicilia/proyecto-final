@@ -3,7 +3,7 @@ NAME
     2-SiciliaPablo-NewRap.py
 
 VERSION
-  1.1
+  1.2
 
 AUTHOR
   Pablo Sicilia Andrade  <psicilia@gmail.com>
@@ -21,7 +21,7 @@ USAGE
   2-SiciliaPablo-NewRap.py
 
 GITHUB
-    https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/2-SiciliaPablo-NewRap.py
+    https://github.com/psicilia/proyecto-final/blob/966bcafc1ab154f1d427a45db73828d8c20c36a7/2.0/2-SiciliaPablo-NewRap.py
 
 """
 import matplotlib.pyplot as plt

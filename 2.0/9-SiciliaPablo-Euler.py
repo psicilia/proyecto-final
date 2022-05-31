@@ -2,7 +2,7 @@
 NAME 
    9-SiciliaPablo-Euler.py
 VERSION
-  1.1
+  1.2
 
 AUTHOR
   Pablo Sicilia Andrade  <psicilia@gmail.com>
@@ -19,7 +19,7 @@ CATEGORY
 USAGE
   9-SiciliaPablo-Euler.py
 GITHUB
-    https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/9-SiciliaPablo-Euler.py
+    https://github.com/psicilia/proyecto-final/blob/966bcafc1ab154f1d427a45db73828d8c20c36a7/2.0/9-SiciliaPablo-Euler.py
 
 """
 import matplotlib.pyplot as plt
