@@ -24,28 +24,23 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/2-SiciliaPablo-NewRap.py
 
 """
-
-import sympy as sp
+import matplotlib.pyplot as plt
 from math import *
+import numpy as np
+from sympy import *
+import sympy as sp
 
-x = sp.Symbol('x')
-# definimos x como simbolo
+X, y = sp.symbols("X y")
+# definimos X como simbolo
 print("bienvenido al metodo de Newton Rapson")
 
-# lista de coeficientes 
-listEsc = []
 # lista de resultados
 listRes = []
 
-i = 0
 #inicializamos ecuacion 
-ecuacion = ""
-ecuacion = input("ingrese su ecuacion: ")
-y = eval(ecuacion)
 
+y = eval(input("ingrese su ecuacion: "))
 # mostramos la ecuacion final
-print(ecuacion)
-y = eval(ecuacion)
 
 def error(a,b):
     #definimos el calculo del error relativo
@@ -53,17 +48,17 @@ def error(a,b):
     return relativeE
     
 # derivamos y con respecto a x
-derivada = y.diff(x)
+derivada = y.diff(X)
 
 def siguiente():
     # definimos el calculo del siguiente resultado
-    aprox = (x-(y/derivada))
-    return aprox.subs(x, (listRes[-1]))
+    aprox = (X-(y/derivada))
+    return aprox.subs(X, (listRes[-1]))
 
-decimal = int(input("cantidad de decimales: "))
-#leemos la precision y el valor inicial
 listRes.append(float(eval(input("ingrese valor inicial: "))))
 # calculamos el resultado calculando con el valor inicial
+decimal = int(input("cantidad de decimales: "))
+#leemos la precision y el valor inicial
 listRes.append(siguiente())
 i = 1
 while error(listRes[-1], listRes[-2]) > (10**(-decimal)):
@@ -71,3 +66,24 @@ while error(listRes[-1], listRes[-2]) > (10**(-decimal)):
     listRes.append(siguiente())
     i = i + 1
 print(" converge a "+ str(decimal) +" decimales en "+ str(round(listRes[-1],decimal)) +" con "+ str(i) + " iteraciones" )
+
+evaluado = []
+evaluadoP = []
+x = np.linspace(float(min(listRes)-1), float(max(listRes)+1), 100)
+for a in x:
+    evaluado.append(y.subs(X, a))
+for a in listRes:
+    evaluadoP.append(y.subs(X, a))
+
+a = [float(min(listRes)-1), float(max(listRes)+1)]
+b = [0, 0]
+c = [float(min(evaluadoP)-1), float(max(evaluadoP)+1)]
+
+plt.plot(listRes, evaluadoP, marker='o', linestyle=':', color = 'r')
+plt.plot(x, evaluado, color= 'b')
+plt.plot(a,b, color = 'black')
+plt.plot(b,c, color = 'black')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title(y)
+plt.show()

@@ -72,10 +72,6 @@ print("converge a " + str(decimal) + " decimales en " + str(round(listX[-1], dec
 
 #print("no converge con el valor de x aproximado")
 
-
-print(ecuacion)
-
-
 evaluado = []
 x = np.linspace(float(min(listX)-1), float(max(listX)+1), 100)
 for a in x:
