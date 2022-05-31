@@ -24,20 +24,19 @@ GITHUB
     https://github.com/psicilia/proyecto-final/blob/1cd01347085aaec9103a22486dc79181ab3a8702/1-SiciliaPablo-Aprox.py
 
 """
-
 import matplotlib.pyplot as plt
-import numpy as np
 from math import *
+import numpy as np
 from sympy import *
 import sympy as sp
 
-x = sp.Symbol('x')
-# definimos x como simbolo
+X, y = sp.symbols("X y")
+# definimos x  y 'y' como simbolo
 print("bienvenido al metodo de aproximaciones sucesivas")
 
 listX = [] #lista de valores de X 
 listY = []
-y = eval(input("ingrese la ecuacion original"))
+y = eval(input("ingrese la ecuacion original: "))
 ecuacion = eval(input("ingrese el despeje de su ecuacion: "))
 # leemos la ecuacion de teclado
 listX.append(float(eval(input("ingresa un valor: "))))
@@ -45,7 +44,7 @@ listX.append(float(eval(input("ingresa un valor: "))))
 decimal = int(input("cantidad de decimales: "))
 # leemos la cantidad de decimales a utilizar
 
-listY.append(round(y.subs(x, listX[-1]), decimal))
+listY.append(round(y.subs(X, listX[-1]), decimal))
 def error(x,y):
     if y == 0:
         relativeE = abs(y-x)
@@ -56,19 +55,19 @@ def error(x,y):
     #definimos el calculo del error relativo
 
 i = 1
-listX.append(ecuacion.subs(x, listX[-1]))
-listY.append(round(y.subs(x, listX[-1]), decimal))
+listX.append(ecuacion.subs(X, listX[-1]))
+listY.append(round(y.subs(X, listX[-1]), decimal))
 print(listX[-1])
 #obtenemos el valor de x1 
 
 while (error(listX[-1], listX[-2]) > (10**(-decimal))):
     # si el error entre xi+1 y xi es mayor que el margen continuamos 
-    listX.append(ecuacion.subs(x, listX[-1]))
-    listY.append(round(y.subs(x, listX[-1]), decimal))
+    listX.append(ecuacion.subs(X, listX[-1]))
+    listY.append(round(y.subs(X, listX[-1]), decimal))
     print(listX[-1])
     i = i + 1
 
-print("converge a" + str(decimal) + " decimales en " + str(round(listX[-1], decimal)) + " con " + str(i) + " iteraciones")
+print("converge a " + str(decimal) + " decimales en " + str(round(listX[-1], decimal)) + " con " + str(i) + " iteraciones")
 # mostramos el ultimo elemento calculado de la lista de x
 
 #print("no converge con el valor de x aproximado")
@@ -76,14 +75,18 @@ print("converge a" + str(decimal) + " decimales en " + str(round(listX[-1], deci
 
 print(ecuacion)
 
-x = np.linspace(float(listX[-1]-1), float(listX[-1]+1), 100)
-a = [float(listX[-1]-1),float(listX[-1]+1)]
+
+evaluado = []
+x = np.linspace(float(min(listX)-1), float(max(listX)+1), 100)
+for a in x:
+    evaluado.append(y.subs(X, a))
+
+a = [float(min(listX)-1),float(max(listX)+1)]
 b = [0,0]
-funcion = eval(str(y))
-print('y', type(funcion))
-plt.plot(listX, listY, marker='o', linestyle=':')
-plt.plot(x, funcion, color= 'b')
-plt.plot(a,b)
+
+plt.plot(listX, listY, marker='o', linestyle=':', color = 'r')
+plt.plot(x, evaluado, color= 'b')
+plt.plot(a,b, color = 'black')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title(y)
